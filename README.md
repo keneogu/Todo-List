@@ -4,6 +4,13 @@
 
 ## Description
 
+### This project is a javascript based Todo web application
+
+#### Features include the following
+
+- Filterale todos based on three parameters (All Todos, Pending Todos, Completed Todos).
+- User can delete the todos.
+- Highlight todos by toggling the checkbox.
 
 
 ## Library Directory 📙
