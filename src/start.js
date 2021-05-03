@@ -137,3 +137,56 @@ function displayTodoForm() {
   cancelTodoBtn.innerHTML = 'Cancel';
   cancelTodoBtn.addEventListener('click', displayProjects);
 }
+
+function displayTodos() {
+  const selectedProjectId = localStorage.getItem('selectedProjectId');
+  const projects = getProjects();
+  const project = projects.find((element) => element.id === selectedProjectId);
+  const projectContainer = document.querySelector('.project-container');
+  clearContent(projectContainer);
+  if (project) {
+    const projectDetails = projectContainer.appendChild(document.createElement('p'));
+    projectDetails.setAttribute('class', 'd-flex justify-content-around active');
+
+    const projectName = projectDetails.appendChild(document.createElement('span'));
+    projectName.innerHTML = project.name;
+    projectName.setAttribute('class', '');
+
+    project.todos.forEach((item) => {
+      const itemCont = projectContainer.appendChild(document.createElement('div'));
+      itemCont.setAttribute('class', `d-flex justify-content-between ${item.id}`);
+      const pTag = itemCont.appendChild(document.createElement('p'));
+
+      const todoCheckBox = pTag.appendChild(document.createElement('input'));
+      todoCheckBox.setAttribute('class', 'd-inline-block mx-3 ');
+      todoCheckBox.setAttribute('type', 'checkbox');
+      todoCheckBox.setAttribute('id', item.id);
+
+      const todoLabel = pTag.appendChild(document.createElement('label'));
+      todoLabel.setAttribute('class', 'd-inline-block ');
+      // todoLabel.setAttribute('for', item.id);
+      todoLabel.innerHTML = item.title;
+
+      const span = itemCont.appendChild(document.createElement('span'));
+      span.setAttribute('class', 'd-inline-block');
+      const editBtn = span.appendChild(document.createElement('button'));
+      editBtn.setAttribute('class', 'bg-info btn mr-2');
+      editBtn.innerHTML = 'EditTodo';
+      editBtn.addEventListener('click', () => {
+        clearContent(projectContainer);
+        displayTodoForm();
+        document.querySelector('.todo-title').value = item.title;
+        document.querySelector('.todo-date').value = item.date;
+        document.querySelector('.priority-select').value = item.priority;
+        document.querySelector('.todo-description').value = item.description;
+        const projectSelect = document.querySelector('.project-select');
+        const projectSelectLabel = document.querySelector('.project-select-label');
+        const todoForm = document.querySelector('.todo-form');
+        todoForm.removeChild(projectSelect);
+        todoForm.removeChild(projectSelectLabel);
+
+        const buttonsContainer = document.querySelector('.todo-buttons');
+        const createButton = document.querySelector('.create-todo');
+        buttonsContainer.removeChild(createButton);
+
+        const cancelTodoButton = document.querySelector('.cancel-todo');
