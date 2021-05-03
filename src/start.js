@@ -49,3 +49,51 @@ function displayProjects() {
   // eslint-disable-next-line no-use-before-define
   displayTodos(selectedProjectId);
 }
+
+function displayTodoForm() {
+  const projectContainer = document.querySelector('.project-container');
+  clearContent(projectContainer);
+  const todoForm = projectContainer.appendChild(document.createElement('form'));
+  todoForm.setAttribute('class', ' mx-auto mt-3 todo-form');
+
+  const titleLabel = todoForm.appendChild(document.createElement('label'));
+  titleLabel.setAttribute('class', 'form-label');
+  titleLabel.innerHTML = 'Title';
+
+  const titleInput = todoForm.appendChild(document.createElement('input'));
+  titleInput.setAttribute('class', 'form-control todo-title w-50');
+  titleInput.setAttribute('type', 'text');
+  titleInput.setAttribute('placeholder', '   Todo title ');
+
+  const dateLabel = todoForm.appendChild(document.createElement('label'));
+  dateLabel.setAttribute('class', 'form-label');
+  dateLabel.innerHTML = 'Date';
+
+  const dateInput = todoForm.appendChild(document.createElement('input'));
+  dateInput.setAttribute('class', 'form-control todo-date w-50');
+  dateInput.setAttribute('type', 'date');
+
+  const descriptionLabel = todoForm.appendChild(document.createElement('label'));
+  descriptionLabel.setAttribute('class', 'form-label mt-3');
+  descriptionLabel.innerHTML = 'Description';
+
+  const descriptionArea = todoForm.appendChild(document.createElement('textarea'));
+  descriptionArea.setAttribute('class', 'form-control mt-2 todo-description w-75');
+  descriptionArea.setAttribute('placeholder', '     Add Todo description');
+
+  const priorityLabel = todoForm.appendChild(document.createElement('label'));
+  priorityLabel.setAttribute('class', 'form-label mt-3');
+  priorityLabel.innerHTML = 'Select Priority';
+
+  const prioritySelectTag = todoForm.appendChild(document.createElement('select'));
+  prioritySelectTag.setAttribute('class', 'form-select priority-select w-50');
+
+  const priorities = ['High', 'Medium', 'Low'];
+  priorities.forEach((priority) => {
+    const option = prioritySelectTag.appendChild(document.createElement('option'));
+    option.setAttribute('value', priority);
+    option.innerHTML = priority;
+  });
+
+  
+}
