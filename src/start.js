@@ -205,4 +205,26 @@ function displayTodos() {
         });
       });
 
-      
+         const removeBtn = span.appendChild(document.createElement('button'));
+      removeBtn.setAttribute('class', 'bg-danger btn');
+      removeBtn.innerHTML = 'Remove';
+      removeBtn.addEventListener('click', (e) => {
+        projectContainer.removeChild(e.target.parentNode.parentNode);
+        removeTodo(projects, project, item.id);
+      });
+
+      if (item.status) {
+        todoCheckBox.checked = true;
+        todoLabel.classList.add('done-task');
+      }
+
+      todoCheckBox.addEventListener('click', () => {
+        if (todoCheckBox.checked) {
+          todoLabel.classList.add('done-task');
+        } else {
+          todoLabel.classList.remove('done-task');
+        }
+        updateStatus(projects, project, item.id);
+      });
+    });
+    
