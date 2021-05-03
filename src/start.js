@@ -227,4 +227,23 @@ function displayTodos() {
         updateStatus(projects, project, item.id);
       });
     });
-    
+
+    const deleteProjectBtn = projectContainer.appendChild(document.createElement('button'));
+    deleteProjectBtn.setAttribute('class', 'btn btn-danger remove-project-btn');
+    deleteProjectBtn.innerHTML = 'Delete Project';
+    deleteProjectBtn.addEventListener('click', () => {
+      if (project.name.toLowerCase() !== 'inbox') {
+        const removed = document.getElementById(project.id);
+
+        const projectList = document.querySelector('.project-list');
+        clearContent(projectContainer);
+        localStorage.removeItem('selectedProjectId');
+
+        projectList.removeChild(removed);
+        removeProject(projects, project);
+      } else {
+        alert('Cannot remove default project');
+      }
+    });
+  }
+}
