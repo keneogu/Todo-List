@@ -190,3 +190,19 @@ function displayTodos() {
         buttonsContainer.removeChild(createButton);
 
         const cancelTodoButton = document.querySelector('.cancel-todo');
+
+        const updateTodoBtn = buttonsContainer.insertBefore(document.createElement('button'), cancelTodoButton);
+        updateTodoBtn.setAttribute('class', 'btn btn-info');
+        updateTodoBtn.innerHTML = 'Save Changes';
+        updateTodoBtn.addEventListener('click', () => {
+          const title = document.querySelector('.todo-title').value;
+          const date = document.querySelector('.todo-date').value;
+          const description = document.querySelector('.todo-description').value;
+          const priority = document.querySelector('.priority-select').value;
+          item = item.updateTodo(title, date, description, priority);
+          localStorage.toDoProjects = JSON.stringify(projects);
+          displayTodos();
+        });
+      });
+
+      
