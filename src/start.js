@@ -205,7 +205,7 @@ function displayTodos() {
         });
       });
 
-         const removeBtn = span.appendChild(document.createElement('button'));
+      const removeBtn = span.appendChild(document.createElement('button'));
       removeBtn.setAttribute('class', 'bg-danger btn');
       removeBtn.innerHTML = 'Remove';
       removeBtn.addEventListener('click', (e) => {

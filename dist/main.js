@@ -726,7 +726,7 @@ function displayTodos() {
         });
       });
 
-         const removeBtn = span.appendChild(document.createElement('button'));
+      const removeBtn = span.appendChild(document.createElement('button'));
       removeBtn.setAttribute('class', 'bg-danger btn');
       removeBtn.innerHTML = 'Remove';
       removeBtn.addEventListener('click', (e) => {
@@ -871,26 +871,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "displayFooter": () => (/* binding */ displayFooter)
 /* harmony export */ });
 function displayNav() {
-	const container = document.getElementById('content');
-	const nav = container.appendChild(document.createElement('nav'));
-	nav.setAttribute('class', 'navbar navbar-dark bg-primary');
-	const navContent = nav.appendChild(document.createElement('div'));
-	navContent.setAttribute('class', 'container-fluid');
-	const navBrand = navContent.appendChild(document.createElement('a'));
-	navBrand.setAttribute('class', 'navbar-brand');
-	navBrand.textContent = 'To Do List';
-  }
-  
-  function displayFooter() {
-	const container = document.getElementById('content');
-	const footer = container.appendChild(document.createElement('footer'));
-	footer.setAttribute('class', 'bg-primary');
-	const authors = footer.appendChild(document.createElement('p'));
-	authors.setAttribute('class', 'text-center text-light my-auto');
-	authors.innerHTML = 'Copyright 2021  Kene && John';
-  }
-  
-  
+  const container = document.getElementById('content');
+  const nav = container.appendChild(document.createElement('nav'));
+  nav.setAttribute('class', 'navbar navbar-dark bg-primary');
+  const navContent = nav.appendChild(document.createElement('div'));
+  navContent.setAttribute('class', 'container-fluid');
+  const navBrand = navContent.appendChild(document.createElement('a'));
+  navBrand.setAttribute('class', 'navbar-brand');
+  navBrand.textContent = 'To Do List';
+}
+
+function displayFooter() {
+  const container = document.getElementById('content');
+  const footer = container.appendChild(document.createElement('footer'));
+  footer.setAttribute('class', 'bg-primary');
+  const authors = footer.appendChild(document.createElement('p'));
+  authors.setAttribute('class', 'text-center text-light my-auto');
+  authors.innerHTML = 'Copyright 2021  Kene && John';
+}
+
+
 
 /***/ }),
 
@@ -909,52 +909,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _start__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./start */ "./src/start.js");
 
-class Todo {
-	constructor(title, date, description, priority, project) {
-		this.title = title;
-		this.date = date;
-		this.description = description;
-		this.priority = priority;
-		this.project = project;
-		this.id = Date.now().toString();
-		this.status = false;
-	}
 
-	updateTodo(title, date, description, priority) {
-		this.title = title;
-		this.date = date;
-		this.description = description;
-		this.priority = priority;
-		return this;
-	}
+class Todo {
+  constructor(title, date, description, priority, project) {
+    this.title = title;
+    this.date = date;
+    this.description = description;
+    this.priority = priority;
+    this.project = project;
+    this.id = Date.now().toString();
+    this.status = false;
+  }
+
+  updateTodo(title, date, description, priority) {
+    this.title = title;
+    this.date = date;
+    this.description = description;
+    this.priority = priority;
+    return this;
+  }
 }
 
 function removeTodo(projects, project, todoId) {
-	project.todos = project.todos.filter((x) => x.id !== todoId);
-	localStorage.toDoProjects = JSON.stringify(projects);
+  project.todos = project.todos.filter((x) => x.id !== todoId);
+  localStorage.toDoProjects = JSON.stringify(projects);
 }
 
 function updateStatus(projects, project, id) {
-	for (let i = 0; i < project.todos.length; i += 1) {
-		if (project.todos[i].id === id && project.todos[i].status === true) {
-			project.todos[i].status = false;
-		} else if (project.todos[i].id === id && project.todos[i].status === false) {
-			project.todos[i].status = true;
-		}
-	}
+  for (let i = 0; i < project.todos.length; i += 1) {
+    if (project.todos[i].id === id && project.todos[i].status === true) {
+      project.todos[i].status = false;
+    } else if (project.todos[i].id === id && project.todos[i].status === false) {
+      project.todos[i].status = true;
+    }
+  }
 
-	localStorage.toDoProjects = JSON.stringify(projects);
+  localStorage.toDoProjects = JSON.stringify(projects);
 }
 
 function createTodo(title, date, description, priority, project) {
-	if (title !== '' && description !== '' && priority !== '' && project !== '' && date !== '') {
-		const projects = (0,_start__WEBPACK_IMPORTED_MODULE_0__.getProjects)();
-		const index = projects.findIndex(({ name }) => name === project);
-		const newTodo = new Todo(title, date, description, priority, project);
-		projects[index].todos.push(newTodo);
-		localStorage.toDoProjects = JSON.stringify(projects);
-		(0,_start__WEBPACK_IMPORTED_MODULE_0__.start)();
-	}
+  if (title !== '' && description !== '' && priority !== '' && project !== '' && date !== '') {
+    const projects = (0,_start__WEBPACK_IMPORTED_MODULE_0__.getProjects)();
+    const index = projects.findIndex(({ name }) => name === project);
+    const newTodo = new Todo(title, date, description, priority, project);
+    projects[index].todos.push(newTodo);
+    localStorage.toDoProjects = JSON.stringify(projects);
+    (0,_start__WEBPACK_IMPORTED_MODULE_0__.start)();
+  }
 }
 
 
@@ -1036,7 +1037,7 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _src_css_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/css/style.scss */ "./src/css/style.scss");
+/* harmony import */ var _css_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/style.scss */ "./src/css/style.scss");
 /* harmony import */ var _structure__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./structure */ "./src/structure.js");
 /* harmony import */ var _start__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./start */ "./src/start.js");
 
