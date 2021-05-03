@@ -23,3 +23,7 @@ function getProjects() {
   }
   return predefinedProjects;
 }
+
+function clearContent(element) {
+  element.textContent = '';
+}
