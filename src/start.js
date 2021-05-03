@@ -95,5 +95,25 @@ function displayTodoForm() {
     option.innerHTML = priority;
   });
 
-  
+  const projectLabel = todoForm.appendChild(document.createElement('label'));
+  projectLabel.setAttribute('class', 'form-label project-select-label mt-3');
+  projectLabel.innerHTML = 'Select Project';
+
+  const projectSelectTag = todoForm.appendChild(document.createElement('select'));
+  projectSelectTag.setAttribute('class', 'w-50 project-select form-select');
+  const projects = getProjects();
+  const selectedProjectId = localStorage.getItem('selectedProjectId');
+
+  if (selectedProjectId) {
+    const option = projectSelectTag.appendChild(document.createElement('option'));
+    const project = projects.find((element) => element.id === selectedProjectId);
+    option.setAttribute('value', project.name);
+    option.innerHTML = project.name;
+  } else {
+    for (let i = 0; i < projects.length; i += 1) {
+      const option = projectSelectTag.appendChild(document.createElement('option'));
+      option.setAttribute('value', projects[i].name);
+      option.innerHTML = projects[i].name;
+    }
+  }
 }
