@@ -116,4 +116,24 @@ function displayTodoForm() {
       option.innerHTML = projects[i].name;
     }
   }
+
+  const buttons = projectContainer.appendChild(document.createElement('p'));
+  buttons.setAttribute('class', 'd-flex justify-content-between mt-4 w-75 mx-auto todo-buttons');
+  const createTodoBtn = buttons.appendChild(document.createElement('button'));
+  createTodoBtn.setAttribute('class', 'btn btn-info create-todo');
+  createTodoBtn.innerHTML = 'Create Todo';
+
+  createTodoBtn.addEventListener('click', () => {
+    const title = titleInput.value;
+    const date = dateInput.value;
+    const description = descriptionArea.value;
+    const priority = prioritySelectTag.value;
+    const project = projectSelectTag.value;
+    createTodo(title, date, description, priority, project);
+  });
+
+  const cancelTodoBtn = buttons.appendChild(document.createElement('button'));
+  cancelTodoBtn.setAttribute('class', 'btn btn-danger cancel-todo');
+  cancelTodoBtn.innerHTML = 'Cancel';
+  cancelTodoBtn.addEventListener('click', displayProjects);
 }
