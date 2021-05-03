@@ -21,8 +21,6 @@ const projectModule = (() => {
       localStorage.toDoProjects = JSON.stringify(projects);
 
       start();
-    } else {
-      alert('Project name already exist or empty');
     }
     target.value = '';
   }

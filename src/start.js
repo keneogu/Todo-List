@@ -241,8 +241,6 @@ function displayTodos() {
 
         projectList.removeChild(removed);
         removeProject(projects, project);
-      } else {
-        alert('Cannot remove default project');
       }
     });
   }
