@@ -4,7 +4,7 @@ import project, { Project, removeProject } from './project';
 // eslint-disable-next-line import/no-cycle
 import {
   Todo, createTodo, removeTodo, updateStatus,
-} from './todo';
+} from './task';
 
 const container = document.getElementById('content');
 
@@ -260,7 +260,7 @@ function start() {
   header.innerHTML = 'Projects';
 
   const projectList = projectSection.appendChild(document.createElement('div'));
-  projectList.setAttribute('class', 'project-list mx-auto w-25');
+  projectList.setAttribute('class', 'project-list text-center mx-auto w-25');
 
   const formContainer = projectSection.appendChild(document.createElement('div'));
   formContainer.setAttribute('class', 'form-container mx-auto w-25');

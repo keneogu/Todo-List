@@ -1,5 +1,11 @@
-const john = document.querySelector('#content');
-const head = document.createElement('h1');
-head.textContent = 'John is a nice guy';
-john.appendChild(head);
+import '../src/css/style.scss';
+import { displayNav, displayFooter } from './structure';
+import { start } from './start';
 
+function initializer() {
+  displayNav();
+  start();
+  displayFooter();
+}
+
+initializer();

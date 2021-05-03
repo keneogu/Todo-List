@@ -1,3 +1,4 @@
+import { getProjects, start } from './start';
 class Todo {
 	constructor(title, date, description, priority, project) {
 		this.title = title;
