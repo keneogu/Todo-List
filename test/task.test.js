@@ -11,7 +11,7 @@ describe('updateTodo', () => {
   });
 });
 
-let projects = start.getProjects();
+const projects = start.getProjects();
 const projectExample = new project.Project('projectExample');
 
 const todoExample2 = new todo.Todo('title3', 'May3rd, 2021', 'description3', 'medium');
@@ -30,4 +30,3 @@ describe('updateStatus', () => {
     expect(projectExample.todos[0].status).toEqual(true);
   });
 });
-
