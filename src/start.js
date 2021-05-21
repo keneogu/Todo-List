@@ -6,8 +6,6 @@ import {
   Todo, createTodo, removeTodo, updateStatus,
 } from './task';
 
-const container = document.getElementById('content');
-
 const predefinedProjects = [new Project('Default'), new Project('Yesterday'), new Project('Today'), new Project('Tomorrow')];
 function getProjects() {
   if (localStorage.getItem('toDoProjects')) {
@@ -246,7 +244,7 @@ function displayTodos() {
   }
 }
 
-function start() {
+function start(container) {
   clearContent(container);
   displayNav();
   const mainContent = container.appendChild(document.createElement('div'));
